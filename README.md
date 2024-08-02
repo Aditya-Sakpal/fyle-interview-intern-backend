@@ -1,58 +1,126 @@
-# Fyle Backend Challenge
+# BeyondChats Flask App
 
-## Who is this for?
+## Documentation
+[Notion Docs](
+https://beyondexams.notion.site/Setup-Flask-server-da57385af603482ca37fd752250ebbd5)
 
-This challenge is meant for candidates who wish to intern at Fyle and work with our engineering team. You should be able to commit to at least 6 months of dedicated time for internship.
-
-## Why work at Fyle?
-
-Fyle is a fast-growing Expense Management SaaS product. We are ~40 strong engineering team at the moment. 
-
-We are an extremely transparent organization. Check out our [careers page](https://careers.fylehq.com) that will give you a glimpse of what it is like to work at Fyle. Also, check out our Glassdoor reviews [here](https://www.glassdoor.co.in/Reviews/Fyle-Reviews-E1723235.htm). You can read stories from our teammates [here](https://stories.fylehq.com).
-
-
-## Challenge outline
-
-**You are allowed to use any online/AI tool such as ChatGPT, Gemini, etc. to complete the challenge. However, we expect you to fully understand the code and logic involved.**
-
-This challenge involves writing a backend service for a classroom. The challenge is described in detail [here](./Application.md)
-
-
-## What happens next?
-
-You will hear back within 48 hours from us via email. 
-
-
-## Installation
-
-1. Fork this repository to your github account
-2. Clone the forked repository and proceed with steps mentioned below
-
-### Install requirements
-
+### Dev Setup
+1. Install and Setup latest version of [Python](https://www.python.org/downloads/)
+2. Create Virtual Environment
+```bash
+python3 -m venv venv
 ```
-virtualenv env --python=python3.8
-source env/bin/activate
+3. Active Virtual Environment
+Linux/Mac
+```bash
+source ./venv/bin/activate
+```
+Windows
+```cmd
+venv\Scripts\activate
+```
+4. Install Dependencies
+```bash
 pip install -r requirements.txt
 ```
-### Reset DB
+5. Create a new settings.py file from settings.example.py and update it accordingly
+```bash
+cp settings.example.py settings.py
+```
+6. Create a new credentials.py file from constants/credentials.sample.py and update it accordingly
+```bash
+cp constants/credentials.sample.py constants/credentials.py
+```
+7. Install punkt tokenizer
+8. Run app
+```bash
+python app.py
+```
 
+# install punkt tokenizer
+```python
+import nltk
+nltk.download("punkt")
 ```
-export FLASK_APP=core/server.py
-rm core/store.sqlite3
-flask db upgrade -d core/migrations/
-```
-### Start Server
 
-```
-bash run.sh
-```
-### Run Tests
 
-```
-pytest -vvv -s tests/
+# Prod Server Setup
 
-# for test coverage report
-# pytest --cov
-# open htmlcov/index.html
+### install NVM
+```bash
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+nvm install --lts
 ```
+
+### install gunicorn in venv
+```bash
+pip install gunicorn
+```
+
+### Install PM2
+```bash
+npm install pm2 -g
+pm2 install pm2-logrotate
+```
+
+### Install redis-server
+Install Redis and start the server (defult port 6379, if you change the port update the `settings.py` file)
+```bash
+curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
+
+sudo apt-get update
+sudo apt-get install redis
+```
+
+```python
+REDIS_HOST = "localhost"
+REDIS_PORT = 6379
+```
+Add Redis server to services
+```bash
+ sudo systemctl enable redis-server
+ sudo systemctl start redis-server
+```
+
+### start prod server
+```bash
+pm2 start pm2.config.js
+pm2 save
+```
+
+### Create PM2 service for auto start - run this then follow instruction
+```bash
+pm2 startup
+```
+
+### PM2 Logs by default are stored in 
+```bash
+ls /.pm2/logs
+```
+
+### OLD README
+<!-- # GPT3 -->
+
+### Steps
+
+1. Install the OpenAI module with `pip install openai`
+2. Run `python --version` to verify the system version of python
+3. Clone down this repo with `git clone git@gitlab.com:bishalbar77/be_gpt3.git`
+4. If you want to run the GPT-3 on custom knowledge base then and copy your data into `data.txt` in `<<DATA>>` block
+5. Go into the repo with `cd be_gpt3`
+6. Run the demo script with `python chat.py`
+
+### What's new in this approach 
+
+1.)In this approach, we categorize user queries to respond appropriately. User queries are classified into two types:
+  Type I: These queries involve users asking about either IVF or Dr. Malpani.
+  Type II: These queries involve users sharing their own updates or seeking knowledge.
+
+2.)Depending on the query type, we respond accordingly:
+  For Type I queries, we provide either one metric, one publication, or one achievement to build the user's trust and create a sense of reliability on Dr. Malpani.
+  For Type II queries, we empathize with the user by offering a testimonial or using a trigger question to ensure they don't feel alone and to make them feel comfortable.
+
+### Current WorkFlow :
+
