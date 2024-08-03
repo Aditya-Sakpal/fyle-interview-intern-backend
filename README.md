@@ -122,5 +122,25 @@ ls /.pm2/logs
   For Type I queries, we provide either one metric, one publication, or one achievement to build the user's trust and create a sense of reliability on Dr. Malpani.
   For Type II queries, we empathize with the user by offering a testimonial or using a trigger question to ensure they don't feel alone and to make them feel comfortable.
 
-### Current WorkFlow :
+### New WorkFlow :
+![image](https://github.com/user-attachments/assets/02532551-797e-4109-bf53-5d0e2f7b14c0)
 
+### Old WorkFlow :
+![image](https://github.com/user-attachments/assets/7cffe406-83b6-4a94-becd-3667ea026257)
+
+
+### Open AI API Calls in the old workflow for NON-PRODUCT RELATED QUERY/SHARING FEEDBACK:
+1.)Intent Classification
+2.)Generating standalone question 
+3.)Generating Embeddings of the query for retrieving relevant sections from the pincone
+4.)Getting GPT'S response 
+5.)Adding Citations to existing GPT's response
+
+### Open AI API Calls in the new workflow for NON-PRODUCT RELATED QUERY/SHARING FEEDBACK:
+1.)Intent Classification
+2.)Generating standalone question 
+3.)Generating Embeddings of the query for retrieving relevant sections from the pincone
+4.)Getting GPT'S response 
+5.)Adding Citations to existing GPT's response
+6.)Generating embeddings for query categorization
+7.)1-2 calls more for adding a trust building factor or empathizing the user
