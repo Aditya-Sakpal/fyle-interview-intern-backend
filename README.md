@@ -137,10 +137,10 @@ ls /.pm2/logs
 - Adding Citations to existing GPT's response
 
 ### Open AI API Calls in the new workflow for NON-PRODUCT RELATED QUERY/SHARING FEEDBACK:
-1.)Intent Classification
-2.)Generating standalone question 
-3.)Generating Embeddings of the query for retrieving relevant sections from the pincone
-4.)Getting GPT'S response 
-5.)Adding Citations to existing GPT's response
-6.)Generating embeddings for query categorization
-7.)1-2 calls more for adding a trust building factor or empathizing the user
+- Intent Classification
+- Generating standalone question 
+- Generating Embeddings of the query for retrieving relevant sections from the pincone
+- Getting GPT'S response 
+- Adding Citations to existing GPT's response
+- Generating embeddings for query categorization
+- 1-2 calls more for adding a trust building factor or empathizing the user
