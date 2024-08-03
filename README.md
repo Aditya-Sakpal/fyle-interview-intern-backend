@@ -144,3 +144,12 @@ ls /.pm2/logs
 - Adding Citations to existing GPT's response
 - Generating embeddings for query categorization
 - 1-2 calls more for adding a trust building factor or empathizing the user
+- 
+
+### Task that are needed to be done 
+- Building and utilizing user persona
+- Web scrapping all the usefull content from drmalpani.com and ivfindia.com
+- Preprocessing the scrapped content and ingesting it into the pincone
+- Updating the workflow accordingly
+- Adding more examples for better query categorization
+- Continous testing
