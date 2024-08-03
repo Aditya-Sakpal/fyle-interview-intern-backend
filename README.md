@@ -130,11 +130,11 @@ ls /.pm2/logs
 
 
 ### Open AI API Calls in the old workflow for NON-PRODUCT RELATED QUERY/SHARING FEEDBACK:
-1.)Intent Classification
-2.)Generating standalone question 
-3.)Generating Embeddings of the query for retrieving relevant sections from the pincone
-4.)Getting GPT'S response 
-5.)Adding Citations to existing GPT's response
+ 1.)Intent Classification
+ 2.)Generating standalone question 
+ 3.)Generating Embeddings of the query for retrieving relevant sections from the pincone
+ 4.)Getting GPT'S response 
+ 5.)Adding Citations to existing GPT's response
 
 ### Open AI API Calls in the new workflow for NON-PRODUCT RELATED QUERY/SHARING FEEDBACK:
 1.)Intent Classification
